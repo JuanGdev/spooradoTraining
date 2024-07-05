@@ -1,0 +1,65 @@
+{
+    "Bolas": {
+        "checkpoints": [
+            {
+                "steps": 30188,
+                "file_path": "results\\Bolas5\\Bolas\\Bolas-30188.onnx",
+                "reward": null,
+                "creation_time": 1720196053.3016233,
+                "auxillary_file_paths": [
+                    "results\\Bolas5\\Bolas\\Bolas-30188.pt"
+                ]
+            },
+            {
+                "steps": 30293,
+                "file_path": "results\\Bolas5\\Bolas\\Bolas-30293.onnx",
+                "reward": null,
+                "creation_time": 1720196153.8972206,
+                "auxillary_file_paths": [
+                    "results\\Bolas5\\Bolas\\Bolas-30293.pt"
+                ]
+            },
+            {
+                "steps": 30413,
+                "file_path": "results\\Bolas5\\Bolas\\Bolas-30413.onnx",
+                "reward": null,
+                "creation_time": 1720196194.1773417,
+                "auxillary_file_paths": [
+                    "results\\Bolas5\\Bolas\\Bolas-30413.pt"
+                ]
+            },
+            {
+                "steps": 499993,
+                "file_path": "results\\Bolas5\\Bolas\\Bolas-499993.onnx",
+                "reward": 0.0,
+                "creation_time": 1720198180.032883,
+                "auxillary_file_paths": [
+                    "results\\Bolas5\\Bolas\\Bolas-499993.pt"
+                ]
+            },
+            {
+                "steps": 500029,
+                "file_path": "results\\Bolas5\\Bolas\\Bolas-500029.onnx",
+                "reward": 0.0,
+                "creation_time": 1720198180.0869513,
+                "auxillary_file_paths": [
+                    "results\\Bolas5\\Bolas\\Bolas-500029.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500029,
+            "file_path": "results\\Bolas5\\Bolas.onnx",
+            "reward": 0.0,
+            "creation_time": 1720198180.0869513,
+            "auxillary_file_paths": [
+                "results\\Bolas5\\Bolas\\Bolas-500029.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0.dev0",
+        "torch_version": "2.2.2+cu121"
+    }
+}

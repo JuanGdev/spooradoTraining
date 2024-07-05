@@ -1,0 +1,54 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1720194601",
+        "python_version": "3.10.12 | packaged by Anaconda, Inc. | (main, Jul  5 2023, 19:01:18) [MSC v.1916 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\juana\\.conda\\envs\\mlagents\\Scripts\\mlagents-learn C:\\Users\\juana\\Documents\\Verano2024\\ml-agents\\config\\ppo\\Bolas_config.yaml --run-id=Bolas4 --resume",
+        "mlagents_version": "1.1.0.dev0",
+        "mlagents_envs_version": "1.1.0.dev0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "2.2.2+cu121",
+        "numpy_version": "1.23.5",
+        "end_time_seconds": "1720194614"
+    },
+    "total": 12.756695600000057,
+    "count": 1,
+    "self": 0.010356899999806046,
+    "children": {
+        "run_training.setup": {
+            "total": 0.13981280000007246,
+            "count": 1,
+            "self": 0.13981280000007246
+        },
+        "TrainerController.start_learning": {
+            "total": 12.606525900000179,
+            "count": 1,
+            "self": 0.00012610000021595624,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 12.187459000000217,
+                    "count": 1,
+                    "self": 12.187459000000217
+                },
+                "trainer_threads": {
+                    "total": 7.999997251317836e-07,
+                    "count": 1,
+                    "self": 7.999997251317836e-07
+                },
+                "TrainerController._save_models": {
+                    "total": 0.4189400000000205,
+                    "count": 1,
+                    "self": 0.0022229999999581196,
+                    "children": {
+                        "RLTrainer._checkpoint": {
+                            "total": 0.4167170000000624,
+                            "count": 1,
+                            "self": 0.4167170000000624
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
