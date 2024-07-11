@@ -565,7 +565,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6f85322105ee9d34a98dc83fafc67fbc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -648,6 +648,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 3818105594029678159}
+  floorRenderer: {fileID: 5264286669643792720}
+  loseMaterial: {fileID: 2100000, guid: e3d2f7f472aa74c4ca2ed1a73e4a9b53, type: 2}
+  winMaterial: {fileID: 2100000, guid: d6955f841cfbc9241afbe3e728b7fedb, type: 2}
 --- !u!1 &6429044754302780497
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,6 +988,7 @@ GameObject:
   - component: {fileID: 4694381069660774405}
   - component: {fileID: 5785392930286355479}
   - component: {fileID: 5789756806154545637}
+  - component: {fileID: 1181173075579941215}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -1001,7 +1005,7 @@ Transform:
   m_GameObject: {fileID: 8884381911861616172}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7212517, z: -0, w: 0.6926732}
-  m_LocalPosition: {x: -5.38, y: 0, z: -2.736}
+  m_LocalPosition: {x: 0.87, y: 0, z: -2.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1181,6 +1185,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1
+--- !u!114 &1181173075579941215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8884381911861616172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2902496c0120472b90269f94a0aec7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Record: 0
+  NumStepsToRecord: 0
+  DemonstrationName: 
+  DemonstrationDirectory: 
 --- !u!1 &8961882426489150964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,7 +1212,7 @@ GameObject:
   - component: {fileID: 6417341950128395241}
   - component: {fileID: 1635355185461103616}
   m_Layer: 0
-  m_Name: raycast
+  m_Name: raycast walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -2,11 +2,11 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
+using Unity.MLAgents.Sensors.Reflection;
 
 public class FourWallsAgent : Agent
 {
     private Vector3[] initialAgentPosition = new Vector3[4];
-    public MeshRenderer floorRenderer;
     public Material loseMaterial;
     public Material winMaterial;
     public GameObject[] walls = new GameObject[4];
@@ -14,6 +14,7 @@ public class FourWallsAgent : Agent
     public float rotationSpeed = 100f;
     public Rigidbody ballRigidbody;
 
+    public int totalBallTouches = 0;
     private int indexWall;
     private Rigidbody agentRigidbody;
     //  TO DO:
@@ -123,14 +124,12 @@ public class FourWallsAgent : Agent
         transform.Rotate(0f, moveRotate * rotationSpeed, 0f, Space.Self);
     }
     
-    onTri
-
     private void OnCollisionEnter(Collision other)
     {
         // Check if the collision is with the ball
         if (other.gameObject.CompareTag("Ball"))
         {
-            AddReward(0.5f); // Add a reward but do not restart the episode
+            totalBallTouches++;
         }
         else
         {
@@ -145,20 +144,18 @@ public class FourWallsAgent : Agent
             }
             if (hitCorrectWall)
             {
-                Debug.Log("Agent in the wall");
+                Debug.Log("Agent in the correct wall");
                 // Do not restart the episode immediately to allow for observation of the correct action
             }
             else
             {
-                AddReward(-1f); // Penalize for hitting the wrong wall
+                Debug.Log("Agent in the wrong wall");
             }
         }
     }
 
     public void RestartEpisode()
     {
-        SetReward(-1f); // Penalize for hitting the wrong wall
-        floorRenderer.material = loseMaterial; // Change the floor material to indicate failure
         agentRigidbody.angularVelocity = Vector3.zero;
         agentRigidbody.velocity = Vector3.zero;
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
@@ -166,6 +163,7 @@ public class FourWallsAgent : Agent
         ballRigidbody.angularVelocity = Vector3.zero;
         ballRigidbody.velocity = Vector3.zero;
         ballRigidbody.transform.localPosition = new Vector3(-0.140000001f, 0, -2.25999999f);
+        totalBallTouches = 0;
         EndEpisode(); // Restart the episode
     }
 

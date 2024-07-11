@@ -316,22 +316,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: 4WallsEnv
       objectReference: {fileID: 0}
-    - target: {fileID: 2707762921352037121, guid: dbf480ea62f927f45bf25670afaf690c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 2707762921352037121, guid: dbf480ea62f927f45bf25670afaf690c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 3092268019219243193, guid: dbf480ea62f927f45bf25670afaf690c, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 6f85322105ee9d34a98dc83fafc67fbc, type: 2}
-    - target: {fileID: 4694381069660774405, guid: dbf480ea62f927f45bf25670afaf690c, type: 3}
-      propertyPath: m_Model
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: 71a13b275ad453f4fb7cda45b159072f, type: 3}
     - target: {fileID: 8146281227044362215, guid: dbf480ea62f927f45bf25670afaf690c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
