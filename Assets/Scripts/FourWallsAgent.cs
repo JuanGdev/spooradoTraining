@@ -30,7 +30,7 @@ public class FourWallsAgent : Agent
         agentRigidbody = GetComponent<Rigidbody>();
         
         indexWall = Random.Range(0, 4);
-        transform.position = initialAgentPosition[indexWall];
+        transform.position += initialAgentPosition[indexWall];
     }
     
     public override void OnEpisodeBegin()
@@ -41,14 +41,14 @@ public class FourWallsAgent : Agent
             agentRigidbody.angularVelocity = Vector3.zero;
             agentRigidbody.velocity = Vector3.zero;
             transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-            transform.localPosition = initialAgentPosition[indexWall];
+            transform.localPosition += initialAgentPosition[indexWall];
             ballRigidbody.angularVelocity = Vector3.zero;
             ballRigidbody.velocity = Vector3.zero;
-            ballRigidbody.transform.localPosition = new Vector3(-0.140000001f,0,-2.25999999f);
+            ballRigidbody.transform.localPosition += new Vector3(-0.140000001f,0,-2.25999999f);
         }
         //  Reset the agent's position
         indexWall = Random.Range(0, 4);
-        transform.localPosition = initialAgentPosition[indexWall];
+        transform.localPosition += initialAgentPosition[indexWall];
         // Calculate the direction to the ball and rotate the agent to face the ball
         Vector3 directionToBall = (ballRigidbody.transform.localPosition - transform.localPosition).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(directionToBall);
@@ -159,10 +159,10 @@ public class FourWallsAgent : Agent
         agentRigidbody.angularVelocity = Vector3.zero;
         agentRigidbody.velocity = Vector3.zero;
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        transform.localPosition = initialAgentPosition[indexWall];
+        transform.localPosition += initialAgentPosition[indexWall];
         ballRigidbody.angularVelocity = Vector3.zero;
         ballRigidbody.velocity = Vector3.zero;
-        ballRigidbody.transform.localPosition = new Vector3(-0.140000001f, 0, -2.25999999f);
+        ballRigidbody.transform.localPosition += new Vector3(-0.140000001f, 0, -2.25999999f);
         totalBallTouches = 0;
         EndEpisode(); // Restart the episode
     }
