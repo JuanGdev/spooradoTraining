@@ -8,6 +8,10 @@ TagManager:
   - Ball
   - Walls
   - Agent
+  - Left Wall
+  - Right Wall
+  - Back Wall
+  - Front Wall
   layers:
   - Default
   - TransparentFX
