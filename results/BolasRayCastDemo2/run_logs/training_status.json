@@ -1,0 +1,38 @@
+{
+    "Bolas": {
+        "checkpoints": [
+            {
+                "steps": 499980,
+                "file_path": "results\\BolasRayCastDemo2\\Bolas\\Bolas-499980.onnx",
+                "reward": 2.0,
+                "creation_time": 1721095437.749155,
+                "auxillary_file_paths": [
+                    "results\\BolasRayCastDemo2\\Bolas\\Bolas-499980.pt"
+                ]
+            },
+            {
+                "steps": 500018,
+                "file_path": "results\\BolasRayCastDemo2\\Bolas\\Bolas-500018.onnx",
+                "reward": 2.0,
+                "creation_time": 1721095437.844143,
+                "auxillary_file_paths": [
+                    "results\\BolasRayCastDemo2\\Bolas\\Bolas-500018.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500018,
+            "file_path": "results\\BolasRayCastDemo2\\Bolas.onnx",
+            "reward": 2.0,
+            "creation_time": 1721095437.844143,
+            "auxillary_file_paths": [
+                "results\\BolasRayCastDemo2\\Bolas\\Bolas-500018.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0.dev0",
+        "torch_version": "2.2.2+cu121"
+    }
+}

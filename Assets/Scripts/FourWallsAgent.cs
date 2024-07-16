@@ -119,7 +119,7 @@ public class FourWallsAgent : Agent
         float moveRotate = actions.ContinuousActions[0];
         float moveForward = actions.ContinuousActions[1];
         agentRigidbody.MovePosition(transform.position + transform.forward * moveForward*moveSpeed*Time.deltaTime);
-        transform.Rotate(0f, moveRotate*(moveSpeed/2f),0f,Space.Self);
+        transform.Rotate(0f, moveRotate*(moveSpeed/3f),0f,Space.Self);
     }
     
     private void OnCollisionEnter(Collision other)
