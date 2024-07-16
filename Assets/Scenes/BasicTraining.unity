@@ -327,10 +327,10 @@ PrefabInstance:
     - target: {fileID: 4694381069660774405, guid: dbf480ea62f927f45bf25670afaf690c, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 937243676f48b5b4486c2fad797bbad1, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4694381069660774405, guid: dbf480ea62f927f45bf25670afaf690c, type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8146281227044362215, guid: dbf480ea62f927f45bf25670afaf690c, type: 3}
       propertyPath: m_LocalPosition.x

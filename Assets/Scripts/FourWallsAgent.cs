@@ -22,10 +22,10 @@ public class FourWallsAgent : Agent
     private void Start()
     {
         //  Setup initial Positions
-        initialAgentPosition[0] = new Vector3(0f, 0, 7f);    // => Back Wall     0
-        initialAgentPosition[1] = new Vector3(0f, 0, -7f);   // => Front Wall    1
-        initialAgentPosition[2] = new Vector3(-7f, 0, 0f);   // => Right Wall    2
-        initialAgentPosition[3] = new Vector3(7f, 0, 0f);    // => Left Wall     3
+        initialAgentPosition[0] = new Vector3(Random.Range(0,4), 0, Random.Range(0,4)); 
+        initialAgentPosition[1] = new Vector3(Random.Range(0,4), 0, Random.Range(0,4));
+        initialAgentPosition[2] = new Vector3(Random.Range(0,4), 0, Random.Range(0,4));
+        initialAgentPosition[3] = new Vector3(Random.Range(0,4), 0, Random.Range(0,4)); 
         agentRigidbody = GetComponent<Rigidbody>();
         
         indexWall = Random.Range(0, 4);
@@ -51,49 +51,19 @@ public class FourWallsAgent : Agent
             ballRigidbody.velocity = Vector3.zero;
             ballRigidbody.transform.localPosition = new Vector3(-0.140000001f,0,-2.25999999f);
         }
-        
-        if (Mathf.Approximately(transform.localPosition.z, 7f))
+        SetRandomCorrectWall();
+    }
+    
+    private void SetRandomCorrectWall()
+    {
+        // Randomly select one wall as the correct wall
+        indexWall = Random.Range(0, walls.Length);
+
+        // Loop through all walls and assign materials based on whether they are the correct wall
+        for (int i = 0; i < walls.Length; i++)
         {
-            //  agent goes to back wall     0
-            indexWall = 0;
-            
-            //  Paint the back wall with win material and all others with lose materials
-            walls[0].GetComponent<MeshRenderer>().material = winMaterial;
-            walls[1].GetComponent<MeshRenderer>().material = loseMaterial;
-            walls[2].GetComponent<MeshRenderer>().material = loseMaterial;
-            walls[3].GetComponent<MeshRenderer>().material = loseMaterial;
-        } else if (Mathf.Approximately(transform.localPosition.z, -7f))
-        {
-            //  agent goes to front wall    1
-            indexWall = 1;
-            
-            //  Paint the front wall with win material and all others with lose materials
-            walls[0].GetComponent<MeshRenderer>().material = loseMaterial;
-            walls[1].GetComponent<MeshRenderer>().material = winMaterial;
-            walls[2].GetComponent<MeshRenderer>().material = loseMaterial;
-            walls[3].GetComponent<MeshRenderer>().material = loseMaterial;
-        } else if (Mathf.Approximately(transform.localPosition.x, -7f))
-        {
-            //  agent goes to right wall    2
-            indexWall = 2;
-            
-            //  Paint the right wall with win material and all others with lose materials
-            walls[0].GetComponent<MeshRenderer>().material = loseMaterial;
-            walls[1].GetComponent<MeshRenderer>().material = loseMaterial;
-            walls[2].GetComponent<MeshRenderer>().material = winMaterial;
-            walls[3].GetComponent<MeshRenderer>().material = loseMaterial;
+            walls[i].GetComponent<MeshRenderer>().material = (i == indexWall) ? winMaterial : loseMaterial;
         }
-        else
-        {
-            //  agent goes to left wall     3
-            indexWall = 3;
-            
-            //  Paint the left wall with win material and all others with lose materials
-            walls[0].GetComponent<MeshRenderer>().material = loseMaterial;
-            walls[1].GetComponent<MeshRenderer>().material = loseMaterial;
-            walls[2].GetComponent<MeshRenderer>().material = loseMaterial;
-            walls[3].GetComponent<MeshRenderer>().material = winMaterial;
-        } 
     }
     public bool CheckIfCorrectWall(GameObject wall)
     {
@@ -156,6 +126,10 @@ public class FourWallsAgent : Agent
 
     public void RestartEpisode()
     {
+        initialAgentPosition[0] = new Vector3(Random.Range(0,6), 0, Random.Range(0,6)); 
+        initialAgentPosition[1] = new Vector3(Random.Range(0,6), 0, Random.Range(0,4));
+        initialAgentPosition[2] = new Vector3(Random.Range(0,6), 0, Random.Range(0,6));
+        initialAgentPosition[3] = new Vector3(Random.Range(0,6), 0, Random.Range(0,6)); 
         agentRigidbody.angularVelocity = Vector3.zero;
         agentRigidbody.velocity = Vector3.zero;
         indexWall = Random.Range(0, 4);
