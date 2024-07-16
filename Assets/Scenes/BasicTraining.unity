@@ -204,8 +204,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964508847}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.37268254, y: -0.000002213754, z: 0.0000005414841, w: 0.92795897}
-  m_LocalPosition: {x: -1.5101988, y: 11.200781, z: -17.596088}
+  m_LocalRotation: {x: 0.32020348, y: 0.6348672, z: -0.32641265, w: 0.6227907}
+  m_LocalPosition: {x: -22.261074, y: 22.989891, z: -0.6386533}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -315,6 +315,14 @@ PrefabInstance:
     - target: {fileID: 2129106410028412325, guid: dbf480ea62f927f45bf25670afaf690c, type: 3}
       propertyPath: m_Name
       value: 4WallsEnv
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694381069660774405, guid: dbf480ea62f927f45bf25670afaf690c, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694381069660774405, guid: dbf480ea62f927f45bf25670afaf690c, type: 3}
+      propertyPath: m_BehaviorType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8146281227044362215, guid: dbf480ea62f927f45bf25670afaf690c, type: 3}
       propertyPath: m_LocalPosition.x

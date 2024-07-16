@@ -2,22 +2,31 @@
     "Bolas": {
         "checkpoints": [
             {
-                "steps": 2976,
-                "file_path": "results\\BolasRayCast2\\Bolas\\Bolas-2976.onnx",
+                "steps": 499967,
+                "file_path": "results\\BolasRayCast2\\Bolas\\Bolas-499967.onnx",
                 "reward": null,
-                "creation_time": 1720738672.2521563,
+                "creation_time": 1720750987.566209,
                 "auxillary_file_paths": [
-                    "results\\BolasRayCast2\\Bolas\\Bolas-2976.pt"
+                    "results\\BolasRayCast2\\Bolas\\Bolas-499967.pt"
+                ]
+            },
+            {
+                "steps": 700050,
+                "file_path": "results\\BolasRayCast2\\Bolas\\Bolas-700050.onnx",
+                "reward": null,
+                "creation_time": 1720753325.092123,
+                "auxillary_file_paths": [
+                    "results\\BolasRayCast2\\Bolas\\Bolas-700050.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 2976,
+            "steps": 700050,
             "file_path": "results\\BolasRayCast2\\Bolas.onnx",
             "reward": null,
-            "creation_time": 1720738672.2521563,
+            "creation_time": 1720753325.092123,
             "auxillary_file_paths": [
-                "results\\BolasRayCast2\\Bolas\\Bolas-2976.pt"
+                "results\\BolasRayCast2\\Bolas\\Bolas-700050.pt"
             ]
         }
     },

@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3.3213542, y: 3.3213542, z: 3.3213542}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8146281227044362215}
@@ -168,8 +168,8 @@ Transform:
   m_GameObject: {fileID: 3670452575157239268}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.11772, y: -0.5, z: 0.33043}
+  m_LocalScale: {x: 1.7252, y: 1, z: 1.6487}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6747372209926366902}
@@ -388,7 +388,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -754,7 +754,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -1004,7 +1004,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8884381911861616172}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7212517, z: -0, w: 0.6926732}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.87, y: 0, z: -2.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1013,7 +1013,7 @@ Transform:
   - {fileID: 4719148928514139633}
   - {fileID: 6417341950128395241}
   m_Father: {fileID: 8146281227044362215}
-  m_LocalEulerAnglesHint: {x: 0, y: 92.316, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &8184749375098599825
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1103,7 +1103,6 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 5000
-  floorRenderer: {fileID: 5264286669643792720}
   loseMaterial: {fileID: 2100000, guid: e3d2f7f472aa74c4ca2ed1a73e4a9b53, type: 2}
   winMaterial: {fileID: 2100000, guid: d6955f841cfbc9241afbe3e728b7fedb, type: 2}
   walls:
@@ -1111,9 +1110,9 @@ MonoBehaviour:
   - {fileID: 7231897468629511960}
   - {fileID: 3905787714996716275}
   - {fileID: 4625381354770888917}
-  movementSpeed: 10
-  rotationSpeed: 10
+  moveSpeed: 10
   ballRigidbody: {fileID: 8759571787121061698}
+  totalBallTouches: 0
 --- !u!114 &4694381069660774405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,8 +1130,8 @@ MonoBehaviour:
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 2
-      BranchSizes: 
-    VectorActionSize: 02000000
+      BranchSizes: 02000000
+    VectorActionSize: 
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
@@ -1183,7 +1182,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 1
 --- !u!114 &1181173075579941215
 MonoBehaviour:
@@ -1199,8 +1198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Record: 0
   NumStepsToRecord: 0
-  DemonstrationName: 
-  DemonstrationDirectory: 
+  DemonstrationName: bolasDemo
+  DemonstrationDirectory: Assets/Demonstrations
 --- !u!1 &8961882426489150964
 GameObject:
   m_ObjectHideFlags: 0

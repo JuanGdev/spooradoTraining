@@ -2,7 +2,7 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
-using Unity.MLAgents.Sensors.Reflection;
+
 
 public class FourWallsAgent : Agent
 {
@@ -10,8 +10,7 @@ public class FourWallsAgent : Agent
     public Material loseMaterial;
     public Material winMaterial;
     public GameObject[] walls = new GameObject[4];
-    public float movementSpeed = 1000f;
-    public float rotationSpeed = 100f;
+    public float moveSpeed = 10f;
     public Rigidbody ballRigidbody;
 
     public int totalBallTouches = 0;
@@ -30,7 +29,7 @@ public class FourWallsAgent : Agent
         agentRigidbody = GetComponent<Rigidbody>();
         
         indexWall = Random.Range(0, 4);
-        transform.position += initialAgentPosition[indexWall];
+        transform.position = initialAgentPosition[indexWall];
     }
     
     public override void OnEpisodeBegin()
@@ -40,19 +39,18 @@ public class FourWallsAgent : Agent
         {
             agentRigidbody.angularVelocity = Vector3.zero;
             agentRigidbody.velocity = Vector3.zero;
-            transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-            transform.localPosition += initialAgentPosition[indexWall];
+            
+            // Calculate the direction to the ball and rotate the agent to face the ball
+            Vector3 directionToBall = (ballRigidbody.transform.localPosition - transform.localPosition).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(directionToBall);
+            transform.rotation = lookRotation;
+            
+            indexWall = Random.Range(0, 4);    
+            transform.localPosition = initialAgentPosition[indexWall];
             ballRigidbody.angularVelocity = Vector3.zero;
             ballRigidbody.velocity = Vector3.zero;
-            ballRigidbody.transform.localPosition += new Vector3(-0.140000001f,0,-2.25999999f);
+            ballRigidbody.transform.localPosition = new Vector3(-0.140000001f,0,-2.25999999f);
         }
-        //  Reset the agent's position
-        indexWall = Random.Range(0, 4);
-        transform.localPosition += initialAgentPosition[indexWall];
-        // Calculate the direction to the ball and rotate the agent to face the ball
-        Vector3 directionToBall = (ballRigidbody.transform.localPosition - transform.localPosition).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(directionToBall);
-        transform.rotation = lookRotation;
         
         if (Mathf.Approximately(transform.localPosition.z, 7f))
         {
@@ -120,8 +118,8 @@ public class FourWallsAgent : Agent
     {
         float moveRotate = actions.ContinuousActions[0];
         float moveForward = actions.ContinuousActions[1];
-        agentRigidbody.MovePosition(transform.localPosition + transform.forward * moveForward * movementSpeed * Time.deltaTime);
-        transform.Rotate(0f, moveRotate * rotationSpeed, 0f, Space.Self);
+        agentRigidbody.MovePosition(transform.position + transform.forward * moveForward*moveSpeed*Time.deltaTime);
+        transform.Rotate(0f, moveRotate*(moveSpeed/2f),0f,Space.Self);
     }
     
     private void OnCollisionEnter(Collision other)
@@ -146,10 +144,12 @@ public class FourWallsAgent : Agent
             {
                 Debug.Log("Agent in the correct wall");
                 // Do not restart the episode immediately to allow for observation of the correct action
+                RestartEpisode();
             }
             else
             {
                 Debug.Log("Agent in the wrong wall");
+                RestartEpisode();
             }
         }
     }
@@ -158,20 +158,25 @@ public class FourWallsAgent : Agent
     {
         agentRigidbody.angularVelocity = Vector3.zero;
         agentRigidbody.velocity = Vector3.zero;
-        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        transform.localPosition += initialAgentPosition[indexWall];
+        indexWall = Random.Range(0, 4);
+        transform.localPosition = initialAgentPosition[indexWall];
         ballRigidbody.angularVelocity = Vector3.zero;
         ballRigidbody.velocity = Vector3.zero;
-        ballRigidbody.transform.localPosition += new Vector3(-0.140000001f, 0, -2.25999999f);
+        ballRigidbody.transform.localPosition = new Vector3(-0.140000001f, 0, -2.25999999f);
         totalBallTouches = 0;
+        
+        // Calculate the direction to the ball and rotate the agent to face the ball
+        Vector3 directionToBall = (ballRigidbody.transform.localPosition - transform.localPosition).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(directionToBall);
+        transform.rotation = lookRotation;
+        
         EndEpisode(); // Restart the episode
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        float moveRotate = Input.GetAxis("Horizontal");
-        float moveForward = Input.GetAxis("Vertical");
-        agentRigidbody.AddForce(transform.forward * moveForward * movementSpeed * Time.deltaTime);
-        transform.Rotate(0f, moveRotate * rotationSpeed * Time.deltaTime, 0f, Space.Self);
+        var continuousActions = actionsOut.ContinuousActions;
+        continuousActions[0] = Input.GetAxis("Horizontal");
+        continuousActions[1] = Input.GetAxis("Vertical");
     }
 }
