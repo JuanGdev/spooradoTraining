@@ -2,22 +2,40 @@
     "Bolas": {
         "checkpoints": [
             {
-                "steps": 12239,
-                "file_path": "results\\BolasRayCastDemoRandomWalls\\Bolas\\Bolas-12239.onnx",
-                "reward": -10.750000160187483,
-                "creation_time": 1721195567.823299,
+                "steps": 499986,
+                "file_path": "results\\BolasRayCastDemoRandomWalls\\Bolas\\Bolas-499986.onnx",
+                "reward": 1.125,
+                "creation_time": 1721200494.5484004,
                 "auxillary_file_paths": [
-                    "results\\BolasRayCastDemoRandomWalls\\Bolas\\Bolas-12239.pt"
+                    "results\\BolasRayCastDemoRandomWalls\\Bolas\\Bolas-499986.pt"
+                ]
+            },
+            {
+                "steps": 999956,
+                "file_path": "results\\BolasRayCastDemoRandomWalls\\Bolas\\Bolas-999956.onnx",
+                "reward": 0.0,
+                "creation_time": 1721201580.9744344,
+                "auxillary_file_paths": [
+                    "results\\BolasRayCastDemoRandomWalls\\Bolas\\Bolas-999956.pt"
+                ]
+            },
+            {
+                "steps": 1000020,
+                "file_path": "results\\BolasRayCastDemoRandomWalls\\Bolas\\Bolas-1000020.onnx",
+                "reward": 0.0,
+                "creation_time": 1721201581.0536926,
+                "auxillary_file_paths": [
+                    "results\\BolasRayCastDemoRandomWalls\\Bolas\\Bolas-1000020.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 12239,
+            "steps": 1000020,
             "file_path": "results\\BolasRayCastDemoRandomWalls\\Bolas.onnx",
-            "reward": -10.750000160187483,
-            "creation_time": 1721195567.823299,
+            "reward": 0.0,
+            "creation_time": 1721201581.0536926,
             "auxillary_file_paths": [
-                "results\\BolasRayCastDemoRandomWalls\\Bolas\\Bolas-12239.pt"
+                "results\\BolasRayCastDemoRandomWalls\\Bolas\\Bolas-1000020.pt"
             ]
         }
     },

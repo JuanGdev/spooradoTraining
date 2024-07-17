@@ -118,13 +118,12 @@ public class FourWallsAgent : Agent
             {
                 Debug.Log("Agent in the correct wall");
                 // Do not restart the episode immediately to allow for observation of the correct action
-                //RestartEpisode();
+                RestartEpisode();
             }
             else
             {
                 Debug.Log("Agent in the wrong wall");
-                AddReward(-0.1f);
-                //RestartEpisode();
+                RestartEpisode();
             }
         }
     }
