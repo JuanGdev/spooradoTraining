@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 5785392930286355479}
   - component: {fileID: 5789756806154545637}
   - component: {fileID: 1181173075579941215}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Agent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1004,8 +1004,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8884381911861616172}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.87, y: 0, z: -2.99}
+  m_LocalRotation: {x: -0, y: -0.33060077, z: -0, w: 0.94377077}
+  m_LocalPosition: {x: 0.77, y: 0, z: -2.967}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1013,7 +1013,7 @@ Transform:
   - {fileID: 4719148928514139633}
   - {fileID: 6417341950128395241}
   m_Father: {fileID: 8146281227044362215}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -38.61, z: 0}
 --- !u!33 &8184749375098599825
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1113,6 +1113,8 @@ MonoBehaviour:
   moveSpeed: 10
   ballRigidbody: {fileID: 8759571787121061698}
   totalBallTouches: 0
+  startAgentPosition: {x: 0, y: 0, z: 0}
+  startBallPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &4694381069660774405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1135,7 +1137,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 937243676f48b5b4486c2fad797bbad1, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 1
   m_BehaviorName: Bolas
@@ -1198,7 +1200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Record: 0
   NumStepsToRecord: 0
-  DemonstrationName: bolasDemo
+  DemonstrationName: bolasDemoRandomWalls
   DemonstrationDirectory: Assets/Demonstrations
 --- !u!1 &8961882426489150964
 GameObject:
@@ -1226,7 +1228,7 @@ Transform:
   m_GameObject: {fileID: 8961882426489150964}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.014, y: 0, z: 0.54}
+  m_LocalPosition: {x: 0.01, y: -0.132, z: -0.495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1257,9 +1259,9 @@ MonoBehaviour:
   m_RayLength: 213
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967291
+    m_Bits: 3
   m_ObservationStacks: 1
-  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
-  rayMissColor: {r: 1, g: 0.9449339, b: 0, a: 1}
+  rayHitColor: {r: 1, g: 1, b: 1, a: 1}
+  rayMissColor: {r: 1, g: 0.8873908, b: 0, a: 1}
   m_StartVerticalOffset: 0
   m_EndVerticalOffset: 0

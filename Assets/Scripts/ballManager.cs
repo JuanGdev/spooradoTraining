@@ -20,7 +20,6 @@ public class ballManager : MonoBehaviour
                 // Reward for hitting the correct wall
                 Debug.Log("Hit the correct wall!");
                 floorRenderer.material = winMaterial; // Change the floor material
-                
                 agent.RestartEpisode(); // Restart the episode
             }
             else
