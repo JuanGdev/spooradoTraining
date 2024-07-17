@@ -206,8 +206,8 @@ Transform:
   m_GameObject: {fileID: 3905787714996716275}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70697725, z: -0, w: 0.70723635}
-  m_LocalPosition: {x: 10.01, y: 0.94, z: -0.53}
-  m_LocalScale: {x: 20.937, y: 2.2182, z: 1}
+  m_LocalPosition: {x: 10.01, y: 2.5, z: -0.53}
+  m_LocalScale: {x: 20.937, y: 5.0510635, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8944552768795010080}
@@ -420,8 +420,8 @@ Transform:
   m_GameObject: {fileID: 4625381354770888917}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70697725, z: -0, w: 0.70723635}
-  m_LocalPosition: {x: -10.25, y: 0.94, z: -0.53}
-  m_LocalScale: {x: 20.937, y: 2.2182, z: 1}
+  m_LocalPosition: {x: -10.25, y: 2.5, z: -0.53}
+  m_LocalScale: {x: 20.937, y: 5.0510635, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8944552768795010080}
@@ -786,8 +786,8 @@ Transform:
   m_GameObject: {fileID: 7231897468629511960}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.37, y: 0.94, z: 9.48}
-  m_LocalScale: {x: 20.937, y: 2.2182, z: 1}
+  m_LocalPosition: {x: -0.37, y: 2.5, z: 9.48}
+  m_LocalScale: {x: 20.937, y: 5.0510635, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8944552768795010080}
@@ -893,8 +893,8 @@ Transform:
   m_GameObject: {fileID: 7532374944912476914}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.37, y: 0.94, z: -10.45}
-  m_LocalScale: {x: 20.937, y: 2.2182, z: 1}
+  m_LocalPosition: {x: -0.37, y: 2.5, z: -10.45}
+  m_LocalScale: {x: 20.937, y: 5.0510635, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8944552768795010080}
@@ -972,6 +972,68 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8522210069168059684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8178007178886689748}
+  - component: {fileID: 1581036663230464568}
+  m_Layer: 0
+  m_Name: raycast walls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8178007178886689748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8522210069168059684}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.01, y: 1.21, z: -0.495}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2707762921352037121}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1581036663230464568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8522210069168059684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RayPerceptionSensor
+  m_DetectableTags:
+  - Right Wall
+  - Left Wall
+  - Back Wall
+  - Front Wall
+  m_RaysPerDirection: 10
+  m_MaxRayDegrees: 90
+  m_SphereCastRadius: 0.43
+  m_RayLength: 213
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 3
+  m_ObservationStacks: 1
+  rayHitColor: {r: 0, g: 0.24642372, b: 1, a: 1}
+  rayMissColor: {r: 1, g: 0.8873908, b: 0, a: 1}
+  m_StartVerticalOffset: 0
+  m_EndVerticalOffset: 0
 --- !u!1 &8884381911861616172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1074,7 @@ Transform:
   - {fileID: 8675538005065876635}
   - {fileID: 4719148928514139633}
   - {fileID: 6417341950128395241}
+  - {fileID: 8178007178886689748}
   m_Father: {fileID: 8146281227044362215}
   m_LocalEulerAnglesHint: {x: 0, y: -38.61, z: 0}
 --- !u!33 &8184749375098599825
@@ -1200,7 +1263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Record: 0
   NumStepsToRecord: 0
-  DemonstrationName: bolasDemoRandomWalls
+  DemonstrationName: basicTranining
   DemonstrationDirectory: Assets/Demonstrations
 --- !u!1 &8961882426489150964
 GameObject:
@@ -1213,7 +1276,7 @@ GameObject:
   - component: {fileID: 6417341950128395241}
   - component: {fileID: 1635355185461103616}
   m_Layer: 0
-  m_Name: raycast walls
+  m_Name: raycast ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

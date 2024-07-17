@@ -2,22 +2,40 @@
     "Bolas": {
         "checkpoints": [
             {
-                "steps": 0,
-                "file_path": "results\\BasicTraining\\Bolas\\Bolas-0.onnx",
-                "reward": null,
-                "creation_time": 1721251603.4707448,
+                "steps": 499972,
+                "file_path": "results\\BasicTraining\\Bolas\\Bolas-499972.onnx",
+                "reward": 1.9943820224719102,
+                "creation_time": 1721252921.7873387,
                 "auxillary_file_paths": [
-                    "results\\BasicTraining\\Bolas\\Bolas-0.pt"
+                    "results\\BasicTraining\\Bolas\\Bolas-499972.pt"
+                ]
+            },
+            {
+                "steps": 999981,
+                "file_path": "results\\BasicTraining\\Bolas\\Bolas-999981.onnx",
+                "reward": 2.0,
+                "creation_time": 1721254169.8116896,
+                "auxillary_file_paths": [
+                    "results\\BasicTraining\\Bolas\\Bolas-999981.pt"
+                ]
+            },
+            {
+                "steps": 1000021,
+                "file_path": "results\\BasicTraining\\Bolas\\Bolas-1000021.onnx",
+                "reward": 2.0,
+                "creation_time": 1721254169.9386573,
+                "auxillary_file_paths": [
+                    "results\\BasicTraining\\Bolas\\Bolas-1000021.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 0,
+            "steps": 1000021,
             "file_path": "results\\BasicTraining\\Bolas.onnx",
-            "reward": null,
-            "creation_time": 1721251603.4707448,
+            "reward": 2.0,
+            "creation_time": 1721254169.9386573,
             "auxillary_file_paths": [
-                "results\\BasicTraining\\Bolas\\Bolas-0.pt"
+                "results\\BasicTraining\\Bolas\\Bolas-1000021.pt"
             ]
         }
     },
