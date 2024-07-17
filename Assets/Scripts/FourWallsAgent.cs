@@ -25,10 +25,10 @@ public class FourWallsAgent : Agent
     private void Start()
     {
         //  Setup initial Positions
-        initialAgentPosition[0] = new Vector3(Random.Range(0,4), 0, Random.Range(0,4)); 
-        initialAgentPosition[1] = new Vector3(Random.Range(0,4), 0, Random.Range(0,4));
-        initialAgentPosition[2] = new Vector3(Random.Range(0,4), 0, Random.Range(0,4));
-        initialAgentPosition[3] = new Vector3(Random.Range(0,4), 0, Random.Range(0,4)); 
+        initialAgentPosition[0] = new Vector3(0f, 0f, 7f); 
+        initialAgentPosition[1] = new Vector3(0f, 0f,-7f );
+        initialAgentPosition[2] = new Vector3(-7f, 0f, 0f);
+        initialAgentPosition[3] = new Vector3(7f, 0f, 0f); 
         agentRigidbody = GetComponent<Rigidbody>();
         startAgentPosition = transform.localPosition;
         startBallPosition = ballRigidbody.transform.localPosition;
@@ -55,7 +55,51 @@ public class FourWallsAgent : Agent
             ballRigidbody.velocity = Vector3.zero;
             ballRigidbody.transform.localPosition += new Vector3(-0.140000001f,0,-2.25999999f);
         }
-        SetRandomCorrectWall();
+        
+        if (Mathf.Approximately(transform.localPosition.z, 7f))
+        {
+            //  agent goes to back wall     0
+            indexWall = 0;
+            
+            //  Paint the back wall with win material and all others with lose materials
+            walls[0].GetComponent<MeshRenderer>().material = winMaterial;
+            walls[1].GetComponent<MeshRenderer>().material = loseMaterial;
+            walls[2].GetComponent<MeshRenderer>().material = loseMaterial;
+            walls[3].GetComponent<MeshRenderer>().material = loseMaterial;
+        } else if (Mathf.Approximately(transform.localPosition.z, -7f))
+        {
+            //  agent goes to front wall    1
+            indexWall = 1;
+            
+            //  Paint the front wall with win material and all others with lose materials
+            walls[0].GetComponent<MeshRenderer>().material = loseMaterial;
+            walls[1].GetComponent<MeshRenderer>().material = winMaterial;
+            walls[2].GetComponent<MeshRenderer>().material = loseMaterial;
+            walls[3].GetComponent<MeshRenderer>().material = loseMaterial;
+        } else if (Mathf.Approximately(transform.localPosition.x, -7f))
+        {
+            //  agent goes to right wall    2
+            indexWall = 2;
+            
+            //  Paint the right wall with win material and all others with lose materials
+            walls[0].GetComponent<MeshRenderer>().material = loseMaterial;
+            walls[1].GetComponent<MeshRenderer>().material = loseMaterial;
+            walls[2].GetComponent<MeshRenderer>().material = winMaterial;
+            walls[3].GetComponent<MeshRenderer>().material = loseMaterial;
+        }
+        else
+        {
+            //  agent goes to left wall     3
+            indexWall = 3;
+            
+            //  Paint the left wall with win material and all others with lose materials
+            walls[0].GetComponent<MeshRenderer>().material = loseMaterial;
+            walls[1].GetComponent<MeshRenderer>().material = loseMaterial;
+            walls[2].GetComponent<MeshRenderer>().material = loseMaterial;
+            walls[3].GetComponent<MeshRenderer>().material = winMaterial;
+        } 
+        
+        //SetRandomCorrectWall();
     }
     
     private void SetRandomCorrectWall()
@@ -130,17 +174,13 @@ public class FourWallsAgent : Agent
 
     public void RestartEpisode()
     {
-        initialAgentPosition[0] = new Vector3(Random.Range(0,6), 0, Random.Range(0,6)); 
-        initialAgentPosition[1] = new Vector3(Random.Range(0,6), 0, Random.Range(0,6));
-        initialAgentPosition[2] = new Vector3(Random.Range(0,6), 0, Random.Range(0,6));
-        initialAgentPosition[3] = new Vector3(Random.Range(0,6), 0, Random.Range(0,6)); 
         agentRigidbody.angularVelocity = Vector3.zero;
         agentRigidbody.velocity = Vector3.zero;
         indexWall = Random.Range(0, 4);
         transform.localPosition = startAgentPosition + initialAgentPosition[indexWall];
         ballRigidbody.angularVelocity = Vector3.zero;
         ballRigidbody.velocity = Vector3.zero;
-        ballRigidbody.transform.localPosition = startBallPosition+ new Vector3(-0.140000001f, 0, -2.25999999f);
+        ballRigidbody.transform.localPosition = startBallPosition;
         if (totalBallTouches == 0)
         {
             SetReward(-1);
