@@ -2,6 +2,7 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
+using Unity.VisualScripting;
 
 
 public class FourWallsAgent : Agent
@@ -9,7 +10,7 @@ public class FourWallsAgent : Agent
     private Vector3[] initialAgentPosition = new Vector3[4];
     public Material loseMaterial;
     public Material winMaterial;
-    public GameObject[] walls = new GameObject[4];
+    public GameObject[] walls = new GameObject[4]; // BACK WALL [0], FRONT WALL [1], RIGHT WALL [2], LEFT WALL [3]
     public float moveSpeed = 10f;
     public Rigidbody ballRigidbody;
 
@@ -22,18 +23,29 @@ public class FourWallsAgent : Agent
     //  TO DO:
     //  4 posiciones donde el agente esta alineado con la bola y debe empujarla hacia alguna pared que se encuentre en su dirección
     //  x: 0, z: 7      x: 0, z: -7     x: -7, z:0      x:7, z: 0
+    
+    // 4 posiciones con un margen más amplio (LOCAL POSITION)
+    // [1] Orientation (in front of "Back Wall"): x: Random.Range(-15,14), z: Random.Range(-14,-4) => Front Wall tagged as "correct"
+    // [2] Orientation (in front of "Front Wall"): x: Random.Range(14,-14), z: Random.Range(2,14) => Back Wall tagged as "correct"
+    // [3] Orientation (in front of "Right Wall"): x:Random.Range(4,14) z:Rando.Range(-13,13) => Left Wall tagged as "correct"
+    // [4] Orientation (in front of "Left Wall"): x:Random.Range(-15,-5) z:Random.Range(-13,13)  => Right Wall tagged as "correct"
     private void Start()
     {
-        //  Setup initial Positions
-        initialAgentPosition[0] = new Vector3(0f, 0f, 7f); 
-        initialAgentPosition[1] = new Vector3(0f, 0f,-7f );
-        initialAgentPosition[2] = new Vector3(-7f, 0f, 0f);
-        initialAgentPosition[3] = new Vector3(7f, 0f, 0f); 
+         SetRandomAgentPositions();
         agentRigidbody = GetComponent<Rigidbody>();
         startAgentPosition = transform.localPosition;
         startBallPosition = ballRigidbody.transform.localPosition;
         indexWall = Random.Range(0, 4);
         transform.position += initialAgentPosition[indexWall];
+    }
+
+    private void SetRandomAgentPositions()
+    {
+        //  Setup initial Positions
+        initialAgentPosition[1] = new Vector3(Random.Range(-15,14), 0f, Random.Range(-14,-4)); 
+        initialAgentPosition[0] = new Vector3(Random.Range(14,-14), 0f,Random.Range(2,14) );
+        initialAgentPosition[3] = new Vector3(Random.Range(4,14), 0f, Random.Range(-13,13));
+        initialAgentPosition[2] = new Vector3(Random.Range(-15,-5), 0f, Random.Range(-13,13));
     }
     
     public override void OnEpisodeBegin()
@@ -56,32 +68,21 @@ public class FourWallsAgent : Agent
             ballRigidbody.transform.localPosition += new Vector3(-0.140000001f,0,-2.25999999f);
         }
         
-        if (Mathf.Approximately(transform.localPosition.z, 7f))
+        // Placing walls in the correct positions (front of agent an ball)
+        if (indexWall == 0)
         {
-            //  agent goes to back wall     0
-            indexWall = 0;
-            
-            //  Paint the back wall with win material and all others with lose materials
             walls[0].GetComponent<MeshRenderer>().material = winMaterial;
             walls[1].GetComponent<MeshRenderer>().material = loseMaterial;
             walls[2].GetComponent<MeshRenderer>().material = loseMaterial;
             walls[3].GetComponent<MeshRenderer>().material = loseMaterial;
-        } else if (Mathf.Approximately(transform.localPosition.z, -7f))
+        } else if (indexWall == 1)
         {
-            //  agent goes to front wall    1
-            indexWall = 1;
-            
-            //  Paint the front wall with win material and all others with lose materials
             walls[0].GetComponent<MeshRenderer>().material = loseMaterial;
             walls[1].GetComponent<MeshRenderer>().material = winMaterial;
             walls[2].GetComponent<MeshRenderer>().material = loseMaterial;
             walls[3].GetComponent<MeshRenderer>().material = loseMaterial;
-        } else if (Mathf.Approximately(transform.localPosition.x, -7f))
+        } else if (indexWall==2)
         {
-            //  agent goes to right wall    2
-            indexWall = 2;
-            
-            //  Paint the right wall with win material and all others with lose materials
             walls[0].GetComponent<MeshRenderer>().material = loseMaterial;
             walls[1].GetComponent<MeshRenderer>().material = loseMaterial;
             walls[2].GetComponent<MeshRenderer>().material = winMaterial;
@@ -89,16 +90,11 @@ public class FourWallsAgent : Agent
         }
         else
         {
-            //  agent goes to left wall     3
-            indexWall = 3;
-            
-            //  Paint the left wall with win material and all others with lose materials
             walls[0].GetComponent<MeshRenderer>().material = loseMaterial;
             walls[1].GetComponent<MeshRenderer>().material = loseMaterial;
             walls[2].GetComponent<MeshRenderer>().material = loseMaterial;
             walls[3].GetComponent<MeshRenderer>().material = winMaterial;
-        } 
-        
+        }
         //SetRandomCorrectWall();
     }
     
@@ -117,7 +113,7 @@ public class FourWallsAgent : Agent
     {
         // Assuming walls array is ordered as [Back, Front, Right, Left]
         // and corresponds to indexWall values 0, 1, 2, 3 respectively
-        return wall == walls[indexWall];
+        return wall.GetComponent<MeshRenderer>().material.name == walls[indexWall].GetComponent<MeshRenderer>().material.name;
     }
     
     public override void CollectObservations(VectorSensor sensor)
@@ -174,6 +170,7 @@ public class FourWallsAgent : Agent
 
     public void RestartEpisode()
     {
+        SetRandomAgentPositions();
         agentRigidbody.angularVelocity = Vector3.zero;
         agentRigidbody.velocity = Vector3.zero;
         indexWall = Random.Range(0, 4);
@@ -190,7 +187,6 @@ public class FourWallsAgent : Agent
         Vector3 directionToBall = (ballRigidbody.transform.localPosition - transform.localPosition).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(directionToBall);
         transform.rotation = lookRotation;
-        
         EndEpisode(); // Restart the episode
     }
 
