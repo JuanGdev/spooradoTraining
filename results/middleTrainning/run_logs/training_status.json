@@ -1,0 +1,47 @@
+{
+    "Bolas": {
+        "checkpoints": [
+            {
+                "steps": 499963,
+                "file_path": "results\\middleTrainning\\Bolas\\Bolas-499963.onnx",
+                "reward": 1.8000000029802323,
+                "creation_time": 1721337630.4529371,
+                "auxillary_file_paths": [
+                    "results\\middleTrainning\\Bolas\\Bolas-499963.pt"
+                ]
+            },
+            {
+                "steps": 999970,
+                "file_path": "results\\middleTrainning\\Bolas\\Bolas-999970.onnx",
+                "reward": 1.9936708860759493,
+                "creation_time": 1721338837.6375458,
+                "auxillary_file_paths": [
+                    "results\\middleTrainning\\Bolas\\Bolas-999970.pt"
+                ]
+            },
+            {
+                "steps": 1000012,
+                "file_path": "results\\middleTrainning\\Bolas\\Bolas-1000012.onnx",
+                "reward": 1.99375,
+                "creation_time": 1721338837.8019423,
+                "auxillary_file_paths": [
+                    "results\\middleTrainning\\Bolas\\Bolas-1000012.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1000012,
+            "file_path": "results\\middleTrainning\\Bolas.onnx",
+            "reward": 1.99375,
+            "creation_time": 1721338837.8019423,
+            "auxillary_file_paths": [
+                "results\\middleTrainning\\Bolas\\Bolas-1000012.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0.dev0",
+        "torch_version": "2.2.2+cu121"
+    }
+}
