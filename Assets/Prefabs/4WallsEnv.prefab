@@ -1066,7 +1066,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8884381911861616172}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.33060077, z: -0, w: 0.94377077}
+  m_LocalRotation: {x: -0, y: 0.99991196, z: -0, w: 0.01327398}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1076,7 +1076,7 @@ Transform:
   - {fileID: 6417341950128395241}
   - {fileID: 8178007178886689748}
   m_Father: {fileID: 8146281227044362215}
-  m_LocalEulerAnglesHint: {x: 0, y: -38.61, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 178.479, z: 0}
 --- !u!33 &8184749375098599825
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1200,7 +1200,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 30e0e3dc7e6f2ce4f8ab788d3108c968, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Bolas
