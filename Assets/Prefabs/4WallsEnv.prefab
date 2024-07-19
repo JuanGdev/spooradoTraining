@@ -1202,7 +1202,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 1
+  m_BehaviorType: 0
   m_BehaviorName: Bolas
   TeamId: 0
   m_UseChildSensors: 1
@@ -1263,7 +1263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Record: 0
   NumStepsToRecord: 0
-  DemonstrationName: basicTranining
+  DemonstrationName: pushToBackWallA
   DemonstrationDirectory: Assets/Demonstrations
 --- !u!1 &8961882426489150964
 GameObject:
