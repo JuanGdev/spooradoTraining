@@ -1,0 +1,47 @@
+{
+    "Bolas": {
+        "checkpoints": [
+            {
+                "steps": 499986,
+                "file_path": "results\\push4WallsB\\Bolas\\Bolas-499986.onnx",
+                "reward": -0.7214285612106324,
+                "creation_time": 1721414780.6320312,
+                "auxillary_file_paths": [
+                    "results\\push4WallsB\\Bolas\\Bolas-499986.pt"
+                ]
+            },
+            {
+                "steps": 999963,
+                "file_path": "results\\push4WallsB\\Bolas\\Bolas-999963.onnx",
+                "reward": null,
+                "creation_time": 1721415969.5843785,
+                "auxillary_file_paths": [
+                    "results\\push4WallsB\\Bolas\\Bolas-999963.pt"
+                ]
+            },
+            {
+                "steps": 1000176,
+                "file_path": "results\\push4WallsB\\Bolas\\Bolas-1000176.onnx",
+                "reward": -2.0,
+                "creation_time": 1721415969.743322,
+                "auxillary_file_paths": [
+                    "results\\push4WallsB\\Bolas\\Bolas-1000176.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1000176,
+            "file_path": "results\\push4WallsB\\Bolas.onnx",
+            "reward": -2.0,
+            "creation_time": 1721415969.743322,
+            "auxillary_file_paths": [
+                "results\\push4WallsB\\Bolas\\Bolas-1000176.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0.dev0",
+        "torch_version": "2.2.2+cu121"
+    }
+}

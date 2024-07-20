@@ -25,7 +25,10 @@ public class FourWallsAgent : Agent
     public Vector3 startBallPosition;
     //  TO DO:
     //  4 posiciones donde el agente esta alineado con la bola y debe empujarla hacia alguna pared que se encuentre en su dirección
-    //  x: 0, z: 7      x: 0, z: -7     x: -7, z:0      x:7, z: 0
+    //  x: 0, z: 10 => Front Wall marked as "correct"
+    // x: 0, z: -10 => Back Wall marked as "correct"
+    // x: -12, z:0 => Left Wall marked as "correct"
+    // x:12, z: 0 => Right Wall marked as "correct"
     
     // 4 posiciones con un margen más amplio (LOCAL POSITION)
     // [1] Orientation (in front of "Back Wall"): x: Random.Range(-15,14), z: Random.Range(-14,-4) => Front Wall tagged as "correct"
@@ -34,7 +37,7 @@ public class FourWallsAgent : Agent
     // [4] Orientation (in front of "Left Wall"): x:Random.Range(-15,-5) z:Random.Range(-13,13)  => Right Wall tagged as "correct"
     private void Start()
     {
-         SetRandomAgentPositions();
+        SetRandomAgentPositions();
         agentRigidbody = GetComponent<Rigidbody>();
         startAgentPosition = transform.localPosition;
         startBallPosition = ballRigidbody.transform.localPosition;
@@ -45,10 +48,10 @@ public class FourWallsAgent : Agent
     private void SetRandomAgentPositions()
     {
         //  Setup initial Positions
-        initialAgentPosition[0] = new Vector3(Random.Range(14,-14), 0f,Random.Range(2,14));
-        initialAgentPosition[1] = new Vector3(-0.3f, 0f, 11.35f); //  initialAgentPosition[1] = new Vector3(Random.Range(-15,14), 0f, Random.Range(-14,-4)); 
-        initialAgentPosition[2] = new Vector3(Random.Range(-15,-5), 0f, Random.Range(-13,13));
-        initialAgentPosition[3] = new Vector3(Random.Range(4,14), 0f, Random.Range(-13,13));
+        initialAgentPosition[0] = new Vector3(0f,0f,-10f); //  initialAgentPosition[1] = new Vector3(Random.Range(-15,14), 0f, Random.Range(-14,-4)); 
+        initialAgentPosition[1] = new Vector3(0f,0f,10f);
+        initialAgentPosition[2] = new Vector3(12f,0f,0f);
+        initialAgentPosition[3] = new Vector3(-12f,0f,0f);
     }
     
     public override void OnEpisodeBegin()
@@ -64,7 +67,7 @@ public class FourWallsAgent : Agent
             Quaternion lookRotation = Quaternion.LookRotation(directionToBall);
             transform.rotation = lookRotation;
 
-            indexWall = 1;//indexWall = Random.Range(0, 4);    
+            indexWall = Random.Range(0, 4);    
             transform.localPosition += initialAgentPosition[indexWall];
             ballRigidbody.angularVelocity = Vector3.zero;
             ballRigidbody.velocity = Vector3.zero;
@@ -173,10 +176,10 @@ public class FourWallsAgent : Agent
 
     public void RestartEpisode()
     {
-        SetRandomAgentPositions();
+        //SetRandomAgentPositions();
         agentRigidbody.angularVelocity = Vector3.zero;
         agentRigidbody.velocity = Vector3.zero;
-        indexWall = 1;
+        indexWall = Random.Range(0,4);
         transform.localPosition = startAgentPosition + initialAgentPosition[indexWall];
         ballRigidbody.angularVelocity = Vector3.zero;
         ballRigidbody.velocity = Vector3.zero;

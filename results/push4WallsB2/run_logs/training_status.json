@@ -1,0 +1,47 @@
+{
+    "Bolas": {
+        "checkpoints": [
+            {
+                "steps": 499820,
+                "file_path": "results\\push4WallsB2\\Bolas\\Bolas-499820.onnx",
+                "reward": -1.6666666666666667,
+                "creation_time": 1721417498.3218446,
+                "auxillary_file_paths": [
+                    "results\\push4WallsB2\\Bolas\\Bolas-499820.pt"
+                ]
+            },
+            {
+                "steps": 999984,
+                "file_path": "results\\push4WallsB2\\Bolas\\Bolas-999984.onnx",
+                "reward": 1.7651515223763206,
+                "creation_time": 1721418530.5099075,
+                "auxillary_file_paths": [
+                    "results\\push4WallsB2\\Bolas\\Bolas-999984.pt"
+                ]
+            },
+            {
+                "steps": 1000039,
+                "file_path": "results\\push4WallsB2\\Bolas\\Bolas-1000039.onnx",
+                "reward": 1.743055562178294,
+                "creation_time": 1721418530.6406019,
+                "auxillary_file_paths": [
+                    "results\\push4WallsB2\\Bolas\\Bolas-1000039.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1000039,
+            "file_path": "results\\push4WallsB2\\Bolas.onnx",
+            "reward": 1.743055562178294,
+            "creation_time": 1721418530.6406019,
+            "auxillary_file_paths": [
+                "results\\push4WallsB2\\Bolas\\Bolas-1000039.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0.dev0",
+        "torch_version": "2.2.2+cu121"
+    }
+}
